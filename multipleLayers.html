@@ -17,10 +17,24 @@
 	} 
 </script>
 <script>
-function removeEarthquakeData() {
-	alert("remove the earthquake data here")
-}
+	function removeEarthquakeData() {
+		alert("remove the earthquake data here")
+	}
 </script>
+
+<script>
+	function loadBusStops() {
+		alert("load the Bus Stops' data here");
+	} 
+</script>
+
+<script>
+	function removeBusStops() {
+		alert("remove the Bus Stops' data here")
+	}
+</script>
+
+
 </head>
 <body>
 	<!-- the mapid div will hold the map -->
@@ -39,16 +53,23 @@ L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=p
 	'Imagery © <a href="http://mapbox.com">Mapbox</a>', id: 'mapbox.streets'
 }).addTo(mymap); </script>
 
-<button id="loadData" name="loadData" onclick="loadEarthquakeData()"> Click here to load the data </button>
+<button id="loadData" name="loadData" 
+onclick="loadEarthquakeData()"> Click here to load the data </button>
 
- <button id="removeEarthquakeData" name="removeEarthquakeData" 
- onclick="removeEarthquakeData()"> Click here to remove the Earthquake data </button>
+<button id="removeEarthquakeData" name="removeEarthquakeData" 
+onclick="removeEarthquakeData()"> Click here to remove the Earthquake data </button>
+
+<button id="loadBusStops" name="loadBusStops" 
+onclick="loadBusStops()"> Click here to load the Bus Stops' data </button>
+
+<button id="removeBusStops" name="removeBusStops" 
+onclick="removeBusStops()"> Click here to remove the Bus Stops' data </button>
 
 </body> </html>
 
 
 <script>
-function loadEarthquakeData() {
+	function loadEarthquakeData() {
 // call the getEarthquakes code
 // keep the alert message so that we know something is happening 
 alert("Loading Earthquakes");
@@ -59,7 +80,7 @@ var client;
 
 // create the code to get the Earthquakes data using an XMLHttpRequest 
 function getEarthquakes() {
-client = new XMLHttpRequest();
+	client = new XMLHttpRequest();
 
 client.open('GET','https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_hour.geojson'); client.onreadystatechange = earthquakeResponse; // note don't use earthquakeResponse() with brackets as that doesn't work 
 client.send();
@@ -89,8 +110,8 @@ mymap.fitBounds(earthquakelayer.getBounds());}
 // this should be GLOBAL – i.e. not inside a function – so that any code can see the variable 
 var earthquakelayer;
 function removeEarthquakeData() {
-alert("Earthquake data will be removed");
-mymap.removeLayer( earthquakelayer );
+	alert("Earthquake data will be removed");
+	mymap.removeLayer( earthquakelayer );
 }
 
 

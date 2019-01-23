@@ -18,7 +18,7 @@
 	<style type="text/css"> #mapid { height: 18<!-- the following links incorporate the CSS required for custom icon creation -->
 		<link rel="stylesheet" href="ionicons.min.css">
 		<link rel="stylesheet" href="leaflet.awesome-markers.css"> 
-		<script src="leaflet.awesome-markers.js"></script>0px; } </style>
+		<script src="leaflet.awesome-markers.js"></script> </style>
 	</head>
 	<body>
 		<!-- the mapid div will hold the map -->
@@ -40,14 +40,12 @@ L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=p
 // create a geoJSON feature - 
 var geojsonFeature = {
 	"type": "Feature", "properties": {
-		"name": "London",
+		"name": "London - ",
 		"popupContent": "This is where UCL is based" },
 		"geometry": {
 			"type": "Point",
 			"coordinates": [-0.134474, 51.524259]
 		} };
-
-
 
 // and add it to the map
 // L.geoJSON(geojsonFeature).addTo(mymap).bindPopup("<b>"+geojsonFeature.properties.name+" "+geojsonFeature.properties.popupContent+"<b>");
@@ -63,10 +61,6 @@ L.geoJSON(geojsonFeature, {
 	}
 }).addTo(mymap).bindPopup("<b>"+geojsonFeature.properties.name+""+geojsonFeature.properties.popupContent+"<b>");
 
-
-
-
-w
 // create a custom popup 
 var popup = L.popup();
 // create an event detector to wait for the user's click event and then use the popup to show them where they clicked
@@ -75,7 +69,7 @@ function onMapClick(e) { popup
 	.setLatLng(e.latlng)
 	.setContent("You clicked the map at " + e.latlng.toString()) .openOn(mymap);
 }
-// now add the click event detector to the map 
+// now add the click event detector to the map  -  the listener setter
 mymap.on('click', onMapClick);
 
 

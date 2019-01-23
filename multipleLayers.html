@@ -16,7 +16,11 @@
 		alert("load the data here");
 	} 
 </script>
-
+<script>
+function removeEarthquakeData() {
+	alert("remove the earthquake data here")
+}
+</script>
 </head>
 <body>
 	<!-- the mapid div will hold the map -->
@@ -37,6 +41,8 @@ L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=p
 
 <button id="loadData" name="loadData" onclick="loadEarthquakeData()"> Click here to load the data </button>
 
+ <button id="removeEarthquakeData" name="removeEarthquakeData" 
+ onclick="removeEarthquakeData()"> Click here to remove the Earthquake data </button>
 
 </body> </html>
 
